@@ -31,11 +31,11 @@ public class Blinkin_Test_BESA_23042024 extends LinearOpMode {
         ledStrip.setPattern(pattern);
         // Communicating with the LedStrip and setting idle to STROBE_GOLD
 
-        digitalTouch1 = hardwareMap.get(DigitalChannel.class, "TouchSensor1");
+        digitalTouch1 = hardwareMap.get(DigitalChannel.class, "digitalTouch1");
         digitalTouch1.setMode(DigitalChannel.Mode.INPUT);
         // Communicating with TouchSensor1 and setting the mode to input
 
-        digitalTouch2 = hardwareMap.get(DigitalChannel.class, "TouchSensor2");
+        digitalTouch2 = hardwareMap.get(DigitalChannel.class, "digitalTouch2");
         digitalTouch2.setMode(DigitalChannel.Mode.INPUT);
         // Communicating with TouchSensor2 and setting mode to input
 
