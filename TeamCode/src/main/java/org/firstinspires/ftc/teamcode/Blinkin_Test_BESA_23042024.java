@@ -8,19 +8,19 @@ import com.qualcomm.robotcore.hardware.DigitalChannel;
 @TeleOp(name = "Blinkin Test", group = "Linear OPMode")
 public class Blinkin_Test_BESA_23042024 extends LinearOpMode {
 
-    RevBlinkinLedDriver ledStrip;
+    private RevBlinkinLedDriver ledStrip;
     // LED strip
-    RevBlinkinLedDriver.BlinkinPattern pattern;
+    private RevBlinkinLedDriver.BlinkinPattern pattern;
     // Pattern
-    DigitalChannel digitalTouch1;
+    private DigitalChannel digitalTouch1;
     // Touch sensor 1
-    DigitalChannel digitalTouch2;
+    private DigitalChannel digitalTouch2;
     // Touch sensor 2
-    boolean variableForTouch1 = false;
+    private boolean variableForTouch1 = false;
     // Allows us to limit the incrementing to once per button press, see below for code
-    boolean variableForTouch2 = false;
+    private boolean variableForTouch2 = false;
     // Allows us to limit the decrementing to once per button press, see below for code
-    int patternNumber = 0;
+    private int patternNumber = 0;
     // Allows us to assign a number to a pattern, thus allowing us to increment and decrement through a switch/case statement, see below for code
 
     @Override
@@ -48,7 +48,7 @@ public class Blinkin_Test_BESA_23042024 extends LinearOpMode {
         while (opModeIsActive()) {
         // When play is pressed, run the code inside this loop
 
-            if (digitalTouch1.getState()) {
+            if (!digitalTouch1.getState()) {
                 if (!variableForTouch1) {
                     patternNumber++;
                     if (patternNumber > 17) {
@@ -62,6 +62,9 @@ public class Blinkin_Test_BESA_23042024 extends LinearOpMode {
             /* Incrementing pattern number once per button press, wrapping the the bottom when finished
              * If you hold button down it will not increment more than once
              *
+             * digitalTouch1 is inverted because of the way the rev touch sensor functions.
+             * When the touch sensor is unpressed, it returns true, and when it is pressed it returns false.
+             *
              * When TouchSensor1 is pressed, it checks to see if variableForTouch1 is false, which by default it is
              * When variableForTouch1 is false, it increments patternNumber by 1, then checks if patternNumber is over 17
              * When patternNumber is over 17, it sets patternNumber to 0
@@ -70,7 +73,7 @@ public class Blinkin_Test_BESA_23042024 extends LinearOpMode {
              * Therefore only allowing it to increment again after variable for touch has be set back to false
              */
 
-            if (digitalTouch2.getState()) {
+            if (!digitalTouch2.getState()) {
                 if (!variableForTouch2) {
                     patternNumber--;
                     if (patternNumber < 0) {
@@ -83,6 +86,9 @@ public class Blinkin_Test_BESA_23042024 extends LinearOpMode {
             }
             /* Decrementing pattern number once per button press, wrapping the the bottom when finished
              * If you hold button down it will not decrement more than once
+             *
+             * digitalTouch1 is inverted because of the way the rev touch sensor functions.
+             * When the touch sensor is unpressed, it returns true, and when it is pressed it returns false.
              *
              * When TouchSensor2 is pressed, it checks to see if variableForTouch2 is false, which by default it is
              * When variableForTouch2 is false, it decrements patternNumber by 1, then checks if patternNumber is under 0
