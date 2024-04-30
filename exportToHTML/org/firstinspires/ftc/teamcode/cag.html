@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>cag</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+cag</font>
+</center></td></tr></table>
+<pre><span class="s0">hey chat! First java code I will be writing.</span>
+<span class="s0">// input: theta, power, and turn</span>
+    <span class="s0">x = gamepad1.left_stick_x;</span>
+    <span class="s0">y = gamepad1.left_stick_y;</span>
+    <span class="s0">turn = gamepad1.right_stick_x;</span>
+
+    <span class="s0">theta = Math.atan2(y, x);</span>
+    <span class="s0">power = Math.hypot(x, y);</span>
+    
+    <span class="s0">sin = Math.sin(theta - Math.PI/4);</span>
+    <span class="s0">cos = Math.cos(theta - Math.PI/4);</span>
+    <span class="s0">max = Math.max(Math.abs(sin), Math.abs(cos));</span>
+
+    <span class="s0">leftFront  = power * cos/max + turn;</span>
+    <span class="s0">rightFront = power * sin/max - turn;</span>
+    <span class="s0">leftRear   = power * sin/max + turn;</span>
+    <span class="s0">rightRear  = power * cos/max - turn;</span>
+
+    <span class="s0">if ((power + Math.abs(turn)) &gt; 1) {</span>
+        <span class="s0">leftFront  /= power + turn;</span>
+        <span class="s0">rightFront /= power + turn;</span>
+        <span class="s0">leftRear   /= power + turn;</span>
+        <span class="s0">rightRear  /= power + turn;</span>
+    <span class="s0">}</span></pre>
+</body>
+</html>
