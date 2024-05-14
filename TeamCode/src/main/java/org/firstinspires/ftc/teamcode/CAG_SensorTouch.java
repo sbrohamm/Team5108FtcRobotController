@@ -73,7 +73,7 @@ public class CAG_SensorTouch extends LinearOpMode {
             if (opModeIsActive()) {
                 // send the info back to driver station using telemetry function.
                 if (touchSensor.isPressed()) {
-                    telemetry.addData("sensortouch", "YIPPEE CAG_SensorTouch works");
+                    telemetry.addData("sensortouch", "YIPPEE");
                 } else {
                     telemetry.addData("sensortouch", "womp womp");
                 }
