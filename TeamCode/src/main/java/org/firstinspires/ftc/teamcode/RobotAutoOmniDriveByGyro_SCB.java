@@ -235,10 +235,7 @@ public class RobotAutoOmniDriveByGyro_SCB extends LinearOpMode {
     *                   0 = fwd. +ve is CCW from fwd. -ve is CW from forward.
     *                   If a relative angle is required, add/subtract from the current robotHeading.
     */
-    public void driveStraight(String direction,
-                              double maxDriveSpeed,
-                              double distance,
-                              double heading) {
+    public void driveStraight(String direction, double maxDriveSpeed, double distance, double heading) {
 
         // Ensure that the OpMode is still active
         if (opModeIsActive()) {
@@ -318,10 +315,7 @@ public class RobotAutoOmniDriveByGyro_SCB extends LinearOpMode {
      *                   0 = fwd. +ve is CCW from fwd. -ve is CW from forward.
      *                   If a relative angle is required, add/subtract from the current robotHeading.
      */
-    public void strafeRobot(String direction,
-                            double maxDriveSpeed,
-                            double distance,
-                            double heading) {
+    public void strafeRobot(String direction, double maxDriveSpeed, double distance, double heading) {
 
         // Ensure that the OpMode is still active
         if (opModeIsActive()) {
